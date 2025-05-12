@@ -6,7 +6,7 @@ const UserTable = async () => {
         name: string
         email: string
     }
-    
+    //
 
     const res = await fetch('https://jsonplaceholder.typicode.com/users', 
         // {cache: "no-store}"
