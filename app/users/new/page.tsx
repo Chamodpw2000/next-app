@@ -1,4 +1,6 @@
+'use client'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 
@@ -8,20 +10,24 @@ interface User {
     
 }
 
-const NewUserPage = async () => {
+const NewUserPage =  () => {
 
-const res = await axios.get('https://jsonplaceholder.typicode.com/users')
-const users: User[] =  res.data;
+  const router = useRouter();
+
 
   return (
     <div>
 
         <h1>Users</h1>
 
-        <ul>
 
-            {users.map((user) => <li key={user.id} >{user.name}</li>)}
-        </ul>
+        <div onClick={()=>{router.push('/admin')}} className='btn btn-primary'>
+
+Add new
+
+        </div>
+
+      
 
 
 

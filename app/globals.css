@@ -23,5 +23,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  padding: 1rem;
+
+}
+
+@layer base {
+  h1{
+    @apply text-3xl font-bold;
+  }
 }

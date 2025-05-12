@@ -20,3 +20,4 @@ export async function POST(request: NextRequest){
     if(!body.name) return NextResponse.json({error: 'Name is required'}, {status: 400})
     return NextResponse.json({id: 5, name: body.name, email: body.email}, {status: 201})
 }
+
