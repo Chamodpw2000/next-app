@@ -5,6 +5,9 @@ import Navbar from "./Navbar";
 import Loading from "./loading";
 import { Suspense } from "react";
 
+import { SessionProvider } from "next-auth/react";
+import AuthProvider from "./auth/Provider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,17 +35,22 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
 
-        <Navbar />
-
-        <main className="p-5">
-          <Suspense fallback={<Loading />}>
-
-  {children}
-          </Suspense>
+      <AuthProvider>
 
 
-        </main>
-      
+          <Navbar />
+
+          <main className="p-5">
+            <Suspense fallback={<Loading />}>
+
+              {children}
+            </Suspense>
+
+
+          </main>
+        </AuthProvider>
+
+
       </body>
     </html>
   );
